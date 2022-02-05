@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  # get 'relationships/followings'
-  # get 'relationships/followers'
   root to: 'homes#top'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
   get "home/about"=>"homes#about"
+  get "search" => "searches#search"
 
   resources :books, only: [:index,:show,:edit,:create,:destroy,:update] do
    resource :favorites, only: [:create, :destroy]

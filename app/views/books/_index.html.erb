@@ -32,20 +32,11 @@
 
         <td><%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %></td>
 
-        <td id="star-rate<%= @book.id%>"></td>
+        <td><%= render "books/static_rate", book: book %></td>
       </tr>
     <% end %>
 
-    <script>
-      $('#star-rate<%= @book.id%>').raty({
-        size      : 36,
-        starOff   : '<%= asset_path('star-off.png') %>',
-        starOn    : '<%= asset_path('star-on.png') %>',
-        half      : false,
-        readOnly: true,
-        score: <%= @book.rate %>,
-      });
-     </script>
+
 
   </tbody>
 </table>
